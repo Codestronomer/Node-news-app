@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node news</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class='header'>
+        <a href="/" style="text-decoration: none; color: white;">
+            <div class="header__logo">
+                <h3>
+                    Node News
+                </h3>
+            </div>
+        </a>
+        <div cass="header__search">
+            <form method="POST" action="/">
+                <input type="text" name="search" placeholder="Search News" />
+                <input type="submit" value="search">
+            </form>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="articles">
+            <% if (news !=null) { %>
+                <% let index=0; %>
+                    <% news.slice(0, 18).forEach((article)=> { %>
+                        <a href="http://localhost:3000/<%= index++ %>" class="articles__card">
+                            <img src="<%= article.multimedia[0].url %>" alt="<%= article.title %>">
+                            <h4>
+                                <%= article.title %>
+                            </h4>
+                            <p style="color: #617d98">
+                                <%= article.byline %>
+                            </p>
+                            <p>
+                                <%= article.abstract %>
+                            </p>
+                        </a>
+                        <% }) %>
+                            <% } else { %>
+                                <p> No news found. </p>
+                                <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

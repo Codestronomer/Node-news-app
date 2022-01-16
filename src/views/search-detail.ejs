@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node news</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class='header'>
+        <a href="/" style="text-decoration: none; color: white;">
+            <div class="header__logo">
+                <h3>
+                    Node News
+                </h3>
+            </div>
+        </a>
+        <div cass="header__search">
+            <form method="POST" action="/">
+                <input type="text" name="search" placeholder="Search News" />
+                <input type="submit" value="search">
+            </form>
+        </div>
+    </header>
+    <div class="detail-wrapper">
+        <div class="news">
+            <% if (news !=null) { %>
+                <div class="news__card">
+                    <h2 style="margin-bottom: 20px;">
+                        <%= news.title %>
+                    </h2>
+                    <img src="http://www.nytimes.com/<%= news.multimedia[0].url %>" alt="<%= news.title %>">
+                    <p style="color: #617d98">
+                        <%= news.byline[0] %>
+                    </p>
+                    <p>
+                        <%= news.abstract %>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias aut sapiente blanditiis
+                                voluptatibus dolores sed, est ex voluptatum eum laudantium autem provident iusto dolor
+                                ducimus voluptates consequuntur laboriosam veniam labore?
+                            </p>
+                            <br>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias aut sapiente blanditiis
+                                voluptatibus dolores sed, est ex voluptatum eum laudantium autem provident iusto dolor
+                                ducimus voluptates consequuntur laboriosam veniam labore?
+                            </p>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias aut sapiente blanditiis
+                                voluptatibus dolores sed, est ex voluptatum eum laudantium autem provident iusto dolor
+                                ducimus voluptates consequuntur laboriosam veniam labore?
+                            </p>
+                    </p>
+                </div>
+                <% } else { %>
+                    <p> No news found. </p>
+                    <% } %>
+        </div>
+    </div>
+</body>
+
+</html>
